@@ -85,7 +85,7 @@ class BatteryChargeIOC(PVGroup):
 
     Solar_power = pvproperty(
         name='SolarPower',
-        value=140.0,
+        value=110.0,
         doc='Power from solar panel',
         units='Watts',
         precision=2,
@@ -175,7 +175,7 @@ class BatteryChargeIOC(PVGroup):
 
             # next step
             self.sim_time += sim_interval
-            await async_lib.library.sleep(sim_interval)
+            await async_lib.library.sleep(0.1 * sim_interval)
 
     @V_target.putter
     async def V_target(self, instance, value):
